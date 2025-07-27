@@ -3,6 +3,7 @@
 import {Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions, Label} from '@headlessui/react'
 import {ChevronDownIcon} from '@heroicons/react/20/solid'
 import {useState} from 'react'
+import Link from "next/link"
 
 const people = [
   {id: 1, name: "Leslie Alexander"},
@@ -36,7 +37,7 @@ const people = [
 
 export default function HeadlessUiPage() {
   const [query, setQuery] = useState('')
-  const [selectedPerson, setSelectedPerson] = useState(null)
+  const [selectedPerson, setSelectedPerson] = useState<typeof filteredPeople[number] | null>(null)
 
   const filteredPeople =
     query === ''
@@ -47,6 +48,11 @@ export default function HeadlessUiPage() {
 
   return (
     <main className="w-lg my-20 mx-auto p-8">
+      <div className="mb-8">
+        <h1 className="text-3xl mb-2">Tailwind Elements with Headless UI</h1>
+        <Link href="/"
+              className="border rounded border-amber-600 text-amber-600 p-1 hover:opacity-60">&lt; Home</Link>
+      </div>
       <Combobox
         as="div"
         value={selectedPerson}
@@ -61,7 +67,7 @@ export default function HeadlessUiPage() {
             className="block w-full rounded-md bg-white py-1.5 pr-12 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
             onChange={(event) => setQuery(event.target.value)}
             onBlur={() => setQuery('')}
-            displayValue={(person) => person?.name}
+            displayValue={(person: typeof filteredPeople[number]) => person?.name}
           />
           <ComboboxButton
             className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-hidden">

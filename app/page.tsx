@@ -10,8 +10,8 @@ export default function Home() {
           <li className="mb-2">
             <a href="/server_component" className="text-blue-600 underline visited:text-indigo-600">Tailwind Elements with server components.</a>
           </li>
-          <li>
-            <a href="/use_effect" className="text-blue-600 underline visited:text-indigo-600">Tailwind Elements with useEffect loading.</a>
+          <li className="mb-2">
+            <a href="/use_effect" className="text-blue-600 underline visited:text-indigo-600">Tailwind Elements with useEffect-loading.</a>
           </li>
           <li>
             <a href="/headless_ui" className="text-blue-600 underline visited:text-indigo-600">Headless UI.</a>

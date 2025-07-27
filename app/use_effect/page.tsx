@@ -1,6 +1,7 @@
 "use client"
 import Script from "next/script"
 import {useEffect, useState} from "react"
+import Link from "next/link"
 
 function getUserList() {
   return [
@@ -45,7 +46,13 @@ export default function RscPage() {
     <>
       <Script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></Script>
       <main className="w-lg my-20 mx-auto p-8">
+        <div className="mb-8">
+          <h1 className="text-3xl mb-2">Tailwind Elements with useEffect-loading</h1>
+          <Link href="/" className="border rounded border-amber-600 text-amber-600 p-1 hover:opacity-60">&lt; Home</Link>
+        </div>
+
         <label htmlFor="autocomplete" className="block text-sm/6 font-medium text-gray-900">Assigned to</label>
+        {/*@ts-expect-error Cannot get TypeScript to recognize custom elements*/}
         <el-autocomplete className="relative mt-2 block">
           <input id="autocomplete" type="text"
                  className="block w-full rounded-md bg-white py-1.5 pr-12 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
@@ -57,16 +64,20 @@ export default function RscPage() {
                 clipRule="evenodd" fillRule="evenodd"/>
             </svg>
           </button>
-
+          {/*@ts-expect-error Cannot get TypeScript to recognize custom elements*/}
           <el-options anchor="bottom end" popover
                       className="max-h-60 w-(--input-width) overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 [--anchor-gap:--spacing(1)] sm:text-sm">
-          {userList.map((user) => (
-            <el-option value={user} key={user}
-                       className="block truncate px-3 py-2 text-gray-900 select-none aria-selected:bg-indigo-600 aria-selected:text-white">
-              {user}
-            </el-option>
-          ))}
+            {userList.map((user) => (
+              /*@ts-expect-error Cannot get TypeScript to recognize custom elements*/
+              <el-option value={user} key={user}
+                         className="block truncate px-3 py-2 text-gray-900 select-none aria-selected:bg-indigo-600 aria-selected:text-white">
+                {user}
+                {/*@ts-expect-error Cannot get TypeScript to recognize custom elements*/}
+              </el-option>
+            ))}
+            {/*@ts-expect-error Cannot get TypeScript to recognize custom elements*/}
           </el-options>
+          {/*@ts-expect-error Cannot get TypeScript to recognize custom elements*/}
         </el-autocomplete>
       </main>
     </>

@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Tailwind Elements Demo
 
-## Getting Started
+### Setup
 
-First, run the development server:
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Click on the links to see a demo with each respective technology. 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### About
 
-## Learn More
+On July 25, 2025, [Tailwind released Vanilla JavaScript support for Tailwind Plus](https://tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus). 
 
-To learn more about Next.js, take a look at the following resources:
+Previously,
+the UI blocks in [Tailwind Plus](https://tailwindcss.com/plus)
+that needed JavaScript used [HeadlessUI](https://headlessui.com).
+Since HeadlessUI itself required either React or Vue,
+this meant that if you wanted to use Tailwind Plus UI blocks inside other frontend frameworks or in vanilla JS,
+you had to write the custom JavaScript yourself.
+This was a non-trivial task considering that ARIA attribute management,
+focus handling, keyboard support are table stakes for professional UI components.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To enable vanilla JavaScript support, Tailwind provides a library named [Tailwind Elements](https://tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus#no-framework-required).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Here I demonstrate using Tailwind Elements in the following frontend technologies.
 
-## Deploy on Vercel
+* Tailwind Elements in Plain HTML
+* Tailwind Elements in React Server Components (no "use client")
+* Tailwind Elements in React useEffect-loaded pages
+* HeadlessUI (as a comparison)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Tailwind Elements brings the convenience and professionalism of HeadlessUI to plain HTML. 
+* Tailwind Elements can be used in React Server Components (RSCs) without a "use client". React Server Components do not hydrate React in the browser and are not "reactive". Nonetheless, Tailwind Elements can bring basic reactivity to RSCs.
+* Tailwind Elements can also be used with traditional useEffect-loaded React pages where the page contents are loaded asynchronously.
+* Compared to the same page in HeadlessUI, Tailwind Elements may actually be easier to work with. 
+   * HeadlessUI requires client components, and hence the top component needs "use client".
+   * The ability to add basic reactivity to Server Components is very nice.
+   * Note that HeadlessUI and Tailwind Elements are working at a different layer of abstraction in this example and cannot be directly compared.
